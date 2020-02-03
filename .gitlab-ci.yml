@@ -1,13 +1,14 @@
 image: docker:stable
 
-services: 
-- docker:dind
-
-before_script:
-- docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
+stages:
+- image-build
 
 build-docker-image:
-  stage: build
+  stage: image-build
+  services: 
+  - docker:dind
+  before_script:
+  - docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
   script:
   - docker build -t alura-gitlab-ci .
   - docker tag alura-gitlab-ci gpoleze/alura-gitlab-ci:latest
@@ -15,6 +16,9 @@ build-docker-image:
 
 build-project:
   stage: build
+  image: gpoleze/alura-gitlab-ci:latest
+  dependencies:
+  - build-docker-image
   tags:
   - alura
   script:
