@@ -18,12 +18,12 @@ build-docker-image:
   - docker tag alura-gitlab-ci gpoleze/alura-gitlab-ci:latest
   - docker push gpoleze/alura-gitlab-ci:latest
 
-# build-project:
-#   stage: build
-#   image: gpoleze/alura-gitlab-ci:latest
-#   dependencies:
-#   - build-docker-image
-#   tags:
-#   - alura
-#   script:
-#   - echo "testing Runner"
+build-project:
+  stage: build
+  image: gpoleze/alura-gitlab-ci:latest
+  dependencies:
+  - build-docker-image
+  tags:
+  - alura
+  script:
+  - echo "testing Runner"
