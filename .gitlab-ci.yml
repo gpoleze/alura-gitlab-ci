@@ -48,6 +48,7 @@ build-project:
 
 test-projetc:
   stage: test
+  image: gpoleze/alura-gitlab-ci:latest
   dependencies:
     - build-project
   tags:
