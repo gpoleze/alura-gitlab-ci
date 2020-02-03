@@ -45,4 +45,28 @@ build-project:
   script:
   - python manage.py makemigrations
   - python manage.py migrate
-  
+
+test-projetc:
+  stage: test
+  dependencies:
+    - builld-project
+  tags:
+    - alura-executor
+  services:
+    - mysql:5.7
+  script:
+    - python -m unittest setUp
+  # TODO - Next parrt has to be optimized
+  variables:
+    MYSQL_USER: $MYSQL_USER
+    MYSQL_PASSWORD: $MYSQL_PASSWORD
+    MYSQL_DATABASE: $MYSQL_DATABASE
+    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+
+    DB_USER: $MYSQL_USER
+    DB_PASSWORD: $MYSQL_PASSWORD
+    DB_NAME: $MYSQL_DATABASE
+    DB_PORT: '3306'
+    DB_HOST: 'mysql'
+
+    SECRET_KEY: $SECRET_KEY
