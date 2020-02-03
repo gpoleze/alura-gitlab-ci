@@ -12,10 +12,6 @@ services:
 before_script:
 - docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
 
-variables:
-  DOCKER_HOST: tcp://docker:2376
-  DOCKER_DRIVER: overlay2
-
 build-docker-image:
   stage: image-build
   script:
