@@ -6,27 +6,29 @@ stages:
 - test
 - deploy
 
+services: 
+- docker:dind
+
+before_script:
+- docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
+
 variables:
   DOCKER_HOST: tcp://docker:2376
   DOCKER_DRIVER: overlay2
 
 build-docker-image:
   stage: image-build
-  services: 
-  - docker:dind
-  before_script:
-  - docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
   script:
   - docker build -t alura-gitlab-ci .
   - docker tag alura-gitlab-ci gpoleze/alura-gitlab-ci:latest
   - docker push gpoleze/alura-gitlab-ci:latest
 
-build-project:
-  stage: build
-  image: gpoleze/alura-gitlab-ci:latest
-  dependencies:
-  - build-docker-image
-  tags:
-  - alura
-  script:
-  - echo "testing Runner"
+# build-project:
+#   stage: build
+#   image: gpoleze/alura-gitlab-ci:latest
+#   dependencies:
+#   - build-docker-image
+#   tags:
+#   - alura
+#   script:
+#   - echo "testing Runner"
