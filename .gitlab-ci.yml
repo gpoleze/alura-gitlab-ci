@@ -1,10 +1,9 @@
 image: docker:stable
 
-services:
-- docker: dind
+services: 
+- docker:dind
 
-build-docker-image
-	stage: build
-	script:
-	- docker build -t alura-gitlab-ci .
-	
+build-docker-image:
+  stage: build
+  script:
+  - docker build -t alura-gitlab-ci .
