@@ -7,7 +7,7 @@ stages:
 - deploy
 
 variables:
-  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_HOST: tcp://docker:2376
   DOCKER_DRIVER: overlay2
 
 build-docker-image:
