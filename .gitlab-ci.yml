@@ -49,7 +49,7 @@ build-project:
 test-projetc:
   stage: test
   dependencies:
-    - builld-project
+    - build-project
   tags:
     - alura-executor
   services:
