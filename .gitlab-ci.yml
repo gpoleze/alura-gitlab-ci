@@ -9,10 +9,9 @@ stages:
 services: 
 - docker:dind
 
-before_script:
-- docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
-
 build-docker-image:
+  before_script:
+  - docker login -u "$CI_REGISTRY_USERNAME" -p "$CI_REGISTRY_PASSWORD"
   stage: image-build
   script:
   - docker build -t alura-gitlab-ci .
