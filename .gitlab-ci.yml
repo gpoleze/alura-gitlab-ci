@@ -26,6 +26,6 @@ build-project:
   dependencies:
   - build-docker-image
   tags:
-  - alura
+  - alura-executor
   script:
   - echo "testing Runner"
