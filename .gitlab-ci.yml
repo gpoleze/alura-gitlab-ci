@@ -11,4 +11,4 @@ build-docker-image:
   script:
   - docker build -t alura-gitlab-ci .
   - docker tag alura-gitlab-ci gpoleze/alura-gitlab-ci:latest
-  - docker push gpoleze/alura-gitlab-ci:tagname:latest
+  - docker push gpoleze/alura-gitlab-ci:latest
