@@ -2,6 +2,9 @@ image: docker:stable
 
 stages:
 - image-build
+- build
+- test
+- deploy
 
 build-docker-image:
   stage: image-build
