@@ -20,6 +20,8 @@ build-docker-image:
 
 build-project:
   stage: build
+  services: 
+  - docker:dind
   image: gpoleze/alura-gitlab-ci:latest
   dependencies:
   - build-docker-image
