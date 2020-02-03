@@ -1,3 +1,10 @@
-job1:
-  script:
-  - echo "hello world"
+image: docker:stable
+
+services:
+- docker: dind
+
+build-docker-image
+	stage: build
+	script:
+	- docker build -t alura-gitlab-ci .
+	
