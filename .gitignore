@@ -66,3 +66,7 @@ venv.bak/
 
 # Other
 .DS_STORE
+
+# IntelliJ
+.idea/
+
