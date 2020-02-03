@@ -34,7 +34,7 @@ build-project:
     DB_PASSWORD: $MYSQL_PASSWORD
     DB_NAME: $MYSQL_DATABASE
     DB_PORT: '3306'
-    DB_HOST: 'db'
+    DB_HOST: 'mysql'
 
     SECRET_KEY: $SECRET_KEY
 
